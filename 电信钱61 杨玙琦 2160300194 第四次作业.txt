@@ -1,0 +1,49 @@
+1.gauss£º
+a=imread('test1.pgm');
+b3=fspecial('gaussian',[3,3],1);
+b5=fspecial('gaussian',[5,5],1);
+b7=fspecial('gaussian',[7,7],1);
+c3=imfilter(a,b3,'replicate');
+c5=imfilter(a,b5,'replicate');
+c7=imfilter(a,b7,'replicate');
+figure;
+subplot(221);imshow(a);title('Ô­Í¼Ïñ');
+subplot(222);imshow(c3);title('3*3ÂË²¨ºó');
+subplot(223);imshow(c5);title('5*5ÂË²¨ºó');
+subplot(224);imshow(c7);title('7*7ÂË²¨ºó');
+
+med£º
+a=imread('test2.tif');
+c3=medfilt2(a,[3,3]);
+c5=medfilt2(a,[5,5]);
+c7=medfilt2(a,[7,7]);
+figure;
+subplot(221);imshow(a);title('Ô­Í¼Ïñ');
+subplot(222);imshow(c3);title('3*3ÂË²¨ºó');
+subplot(223);imshow(c5);title('5*5ÂË²¨ºó');
+subplot(224);imshow(c7);title('7*7ÂË²¨ºó');
+
+
+
+3.
+a=imread('test1.pgm');
+b3=fspecial('sobel');
+b5=fspecial('unsharp');
+b7=fspecial('gaussian',[3,3],1.5);
+b8=fspecial('laplacian');
+b9=edge(a,'canny');
+c3=imfilter(a,b3,'replicate');
+c5=imfilter(a,b5,'replicate');
+c7=imfilter(a,b7,'replicate');
+c8=imfilter(a,b8,'replicate');
+
+figure;
+subplot(321);imshow(a);title('Ô­Í¼Ïñ');
+subplot(322);imshow(c3);title('sobel edge detector');
+subplot(323);imshow(c5);title('unsharp masking');
+subplot(324);imshow(c7);title('gaussian');
+subplot(325);imshow(c8);title('laplace edge detection');
+subplot(326);imshow(b9);title('canny algorithm');
+
+
+
